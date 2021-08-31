@@ -1,0 +1,29 @@
+﻿<Window x:Class="Projet_Integrateur_ToufikDahmani.EspaceAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projet_Integrateur_ToufikDahmani"
+        mc:Ignorable="d"
+        Title="Espace Administrateur" Height="450" Width="701" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontSize="14" ResizeMode="NoResize">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="792">
+            <Button x:Name="btnAjouterMedecin" Content="Ajouter Medecin" HorizontalAlignment="Left" Margin="520,10,0,0" VerticalAlignment="Top" Width="150" Height="34" FontSize="16" Click="BtnAjouterMedecin_Click" TabIndex="3"/>
+            <Label Content="Gestion du personnel" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="216" FontSize="20" FontFamily="Segoe UI Semibold"/>
+            <Button x:Name="btnModifierMedecin" Content="Modifier Medecin" HorizontalAlignment="Left" Margin="520,97,0,0" VerticalAlignment="Top" Width="150" Height="34" FontSize="16" Click="BtnModifierMedecin_Click" IsEnabled="False" TabIndex="5"/>
+            <Label Content="Nom :" HorizontalAlignment="Left" Margin="241,16,0,0" VerticalAlignment="Top" Width="65"/>
+            <TextBox x:Name="txtNomMedecin" HorizontalAlignment="Left" Height="30" Margin="311,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Padding="0,3,0,0" TabIndex="1"/>
+            <Label Content="Prénom :" HorizontalAlignment="Left" Margin="241,57,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtPrenomMedecin" HorizontalAlignment="Left" Height="30" Margin="311,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Padding="0,3,0,0" TabIndex="2"/>
+            <Button x:Name="btnVider" Content="Vider" HorizontalAlignment="Left" Margin="520,54,0,0" VerticalAlignment="Top" Width="150" Height="34" FontSize="16" Click="BtnVider_Click" TabIndex="4"/>
+            <Button x:Name="btnDeconnexion" Content="Deconnexion" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Foreground="White" Background="#FFDE3E3E" FontFamily="Segoe UI Semibold" Click="BtnDeconnexion_Click"/>
+        </Grid>
+        <DataGrid x:Name="dg_admin_space" HorizontalAlignment="Left" Height="275" VerticalAlignment="Top" Width="792" AlternatingRowBackground="#EEEEEE" AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,144,0,0" SelectionChanged="dg_admin_space_SelectionChanged" SelectionMode="Single" IsReadOnly="True" ColumnWidth="Auto" MinColumnWidth="100">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Identifiant" Binding="{Binding IDMedecin}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding NomMedecin}"/>
+                <DataGridTextColumn Header="Prénom" Binding="{Binding PrenomMedecin}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

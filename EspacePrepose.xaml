@@ -1,0 +1,36 @@
+﻿<Window x:Class="Projet_Integrateur_ToufikDahmani.EspacePrepose"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projet_Integrateur_ToufikDahmani"
+        mc:Ignorable="d"
+        Title="Espace Préposé" Height="450" Width="895" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize" FontSize="14" MinWidth="20">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="877">
+            <Button x:Name="btnAjouterPatient" Content="Ajouter Patient" HorizontalAlignment="Left" Margin="546,34,0,0" VerticalAlignment="Top" Width="126" Height="34" FontSize="16" Click="BtnAjouterPatient_Click"/>
+            <Button x:Name="btnAdmission" Content="Nouvelle Admission" HorizontalAlignment="Left" Margin="687,34,0,0" VerticalAlignment="Top" Width="177" Height="34" FontSize="16" Click="BtnAdmission_Click"/>
+            <Button x:Name="btnChercherPatient" Content="Chercher Patient" HorizontalAlignment="Left" Margin="406,34,0,0" VerticalAlignment="Top" Width="126" Height="34" FontSize="16" Click="BtnChercherPatient_Click"/>
+            <Button x:Name="btnDeconnexion" Content="Deconnexion" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="95" Foreground="White" Background="#FFDE3E3E" FontFamily="Segoe UI Semibold" Click="BtnDeconnexion_Click" Height="22"/>
+        </Grid>
+        <DataGrid x:Name="dg_admissions_space" HorizontalAlignment="Left" Height="344" VerticalAlignment="Top" Width="889" AlternatingRowBackground="#EEEEEE" AutoGenerateColumns="False" ItemsSource="{Binding}" Margin="0,77,0,0" IsReadOnly="True" FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Admission" Binding="{Binding IDAdmission}" />
+                <DataGridTextColumn Header="Numero NAS" Binding="{Binding Nss}" />
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" />
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Prenom}" />
+                <DataGridTextColumn Header="Date naissance" Binding="{Binding DateNaissance}" />
+                <DataGridTextColumn Header="Date admission" Binding="{Binding DateAdmission}" />
+                <DataGridTextColumn Header="Chirurgie" Binding="{Binding ChirurgiePrograme}" />
+                <DataGridTextColumn Header="Date congé" Binding="{Binding DateConge}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="BtnDetails_Click" CommandParameter="{Binding Path=IDAdmission}">Détails</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

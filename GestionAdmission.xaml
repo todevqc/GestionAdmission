@@ -1,0 +1,64 @@
+﻿<Window x:Class="Projet_Integrateur_ToufikDahmani.GestionAdmission"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projet_Integrateur_ToufikDahmani"
+        mc:Ignorable="d"
+        Title="Gestion Admission" Height="702.728" Width="771.5" WindowStartupLocation="CenterScreen" FontSize="14" Loaded="Window_Loaded" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="txtNom" HorizontalAlignment="Left" Height="30" Margin="137,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" TabIndex="1" Padding="0,4,0,0" IsEnabled="False"/>
+        <Label Content="Nom :" HorizontalAlignment="Left" Margin="41,146,0,0" VerticalAlignment="Top" Width="92"/>
+        <TextBox x:Name="txtPrenom" HorizontalAlignment="Left" Height="30" Margin="137,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255" TabIndex="2" Padding="0,4,0,0" IsEnabled="False"/>
+        <Label Content="Prénom :" HorizontalAlignment="Left" Margin="41,185,0,0" VerticalAlignment="Top" Width="92"/>
+        <TextBox x:Name="txtNss" HorizontalAlignment="Left" Height="30" Margin="137,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" TabIndex="1" Padding="0,4,0,0"/>
+        <Label Content="NAS Patient :" HorizontalAlignment="Left" Margin="41,108,0,0" VerticalAlignment="Top" Width="92"/>
+        <Label Content="Date Admission :" HorizontalAlignment="Left" Margin="419,28,0,0" VerticalAlignment="Top" Width="118"/>
+        <DatePicker x:Name="dateAdmission" HorizontalAlignment="Left" Margin="542,27,0,0" VerticalAlignment="Top" Height="30" TabIndex="4" Padding="2,4,2,2" Width="178" IsEnabled="False"/>
+        <Label Content="Date Chirurgie :" HorizontalAlignment="Left" Margin="429,146,0,0" VerticalAlignment="Top" Width="109"/>
+        <DatePicker x:Name="dateChirurgie" HorizontalAlignment="Left" Margin="542,145,0,0" VerticalAlignment="Top" Height="30" TabIndex="4" Padding="2,4,2,2" Width="178" IsEnabled="False"/>
+        <Label Content="Date Conge :" HorizontalAlignment="Left" Margin="429,185,0,0" VerticalAlignment="Top" Width="109"/>
+        <DatePicker x:Name="dateConge" HorizontalAlignment="Left" Margin="542,184,0,0" VerticalAlignment="Top" Height="30" TabIndex="4" Padding="2,4,2,2" Width="178" IsEnabled="False"/>
+        <GroupBox Header="Commodité" HorizontalAlignment="Left" Height="100" Margin="91,472,0,0" VerticalAlignment="Top" Width="599">
+            <Grid HorizontalAlignment="Left" Height="79" Margin="0,0,0,-5" VerticalAlignment="Top" Width="584">
+                <GroupBox Header="Téléviseur" HorizontalAlignment="Left" Height="59" Margin="25,7,0,0" VerticalAlignment="Top" Width="244">
+                    <Grid HorizontalAlignment="Left" Height="39" Margin="0,0,0,-6" VerticalAlignment="Top" Width="224">
+                        <RadioButton x:Name="rbTVOui" Content="Oui" HorizontalAlignment="Left" Margin="39,8,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="rbTVNon" Content="Non" HorizontalAlignment="Left" Margin="129,8,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Téléphone" HorizontalAlignment="Left" Height="59" Margin="315,7,0,0" VerticalAlignment="Top" Width="244">
+                    <Grid HorizontalAlignment="Left" Height="39" Margin="0,0,0,-6" VerticalAlignment="Top" Width="224">
+                        <RadioButton x:Name="rbPhoneOui" Content="Oui" HorizontalAlignment="Left" Margin="39,8,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="rbPhoneNon" Content="Non" HorizontalAlignment="Left" Margin="129,8,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+        <Label Content="ID Medecin :" HorizontalAlignment="Left" Margin="402,342,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Nom Medecin :" HorizontalAlignment="Left" Margin="402,380,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Prénom Medecin :" HorizontalAlignment="Left" Margin="402,419,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBox x:Name="txtNomMedecin" Text="{Binding SelectedItem.NomMedecin, ElementName=cboxIDMedecin}" HorizontalAlignment="Left" Height="30" Margin="532,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" TabIndex="2" Padding="0,4,0,0" IsEnabled="False"/>
+        <TextBox x:Name="txtPrenomMedecin" Text="{Binding SelectedItem.PrenomMedecin, ElementName=cboxIDMedecin}" HorizontalAlignment="Left" Height="30" Margin="532,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" TabIndex="2" Padding="0,4,0,0" IsEnabled="False"/>
+        <Button x:Name="btnEnregistrer" Content="Enregistrer" HorizontalAlignment="Left" Margin="162,605,0,0" VerticalAlignment="Top" Width="124" Height="30" Click="BtnEnregistrer_Click"/>
+        <Button x:Name="btnVider" Content="Vider" HorizontalAlignment="Left" Margin="320,605,0,0" VerticalAlignment="Top" Width="124" Height="30" Click="BtnVider_Click"/>
+        <Button x:Name="btnAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="477,605,0,0" VerticalAlignment="Top" Width="124" Height="30" Click="BtnAnnuler_Click"/>
+        <TextBox x:Name="txtIDAdmission" HorizontalAlignment="Left" Height="30" Margin="186,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" TabIndex="1" Padding="0,4,0,0" IsEnabled="False"/>
+        <Label Content="Numéro Admission :" HorizontalAlignment="Left" Margin="41,27,0,0" VerticalAlignment="Top" Width="137"/>
+        <Label Content="Date Nassance :" HorizontalAlignment="Left" Margin="41,223,0,0" VerticalAlignment="Top" Width="111"/>
+        <DatePicker x:Name="dateNaissance" HorizontalAlignment="Left" Margin="157,222,0,0" VerticalAlignment="Top" Height="30" TabIndex="4" Padding="2,4,2,2" Width="183" IsEnabled="False"/>
+        <Label Content="Chirurgie :" HorizontalAlignment="Left" Margin="429,107,0,0" VerticalAlignment="Top" Width="109"/>
+        <CheckBox x:Name="ckChirurgie" Content="Programmer" HorizontalAlignment="Left" Margin="541,114,0,0" VerticalAlignment="Top" Checked="ckChirurgie_Checked" Unchecked="ckChirurgie_Unchecked"/>
+        <Button x:Name="btnAttribuerLit" Content="Attribuer Lit" HorizontalAlignment="Left" Margin="69,296,0,0" VerticalAlignment="Top" Width="140" Height="30" Click="BtnAttribuerLit_Click"/>
+        <Label Content="Département :" HorizontalAlignment="Left" Margin="47,342,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="Chambre :" HorizontalAlignment="Left" Margin="47,380,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="N° Lit :" HorizontalAlignment="Left" Margin="47,419,0,0" VerticalAlignment="Top" Width="53"/>
+        <TextBox x:Name="txtNumLit" HorizontalAlignment="Left" Height="30" Margin="102,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" TabIndex="2" Padding="0,4,0,0" IsEnabled="False"/>
+        <Label x:Name="lblSituationLit" Content="" HorizontalAlignment="Left" Margin="233,419,0,0" VerticalAlignment="Top" Width="102"/>
+        <ComboBox x:Name="cboxChambre" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="157,379,0,0" VerticalAlignment="Top" Width="178" Height="30"/>
+        <ComboBox x:Name="cboxDepartement" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="157,341,0,0" VerticalAlignment="Top" Width="178" Height="30"/>
+        <ComboBox x:Name="cboxIDMedecin" ItemsSource="{Binding}" DisplayMemberPath="IDMedecin" HorizontalAlignment="Left" Margin="532,341,0,0" VerticalAlignment="Top" Width="178" Height="30"/>
+        <Button x:Name="btnVerifierPatient" Content="Verifier" HorizontalAlignment="Left" Margin="314,107,0,0" VerticalAlignment="Top" Width="77" Height="30" Click="BtnVerifierPatient_Click"/>
+
+    </Grid>
+</Window>
